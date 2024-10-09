@@ -51,6 +51,8 @@ def move(T, a, nfa):
     for state in T:
         # Revisamos todas las transiciones desde el estado actual
         for (current_state, symbol), next_states in nfa.transitions.items():
+            if symbol == "&":
+                continue
             if current_state == state and symbol == a:
                 # Si el símbolo coincide con 'a', añadimos los estados alcanzables al conjunto
                 for next_state in next_states:
